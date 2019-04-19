@@ -250,10 +250,11 @@
 			opacity: 1;
 			transform: scale(1.03);
 			cursor: default;
+			background-color: white;
 			.image {
 				filter: blur(70px);
 				// -webkit-filter: blur(70px) saturate(200%) brightness(150%);
-				opacity: 1;
+				opacity: 0.95;
 				transform: scale(1.2);
 			}
 			.details {
