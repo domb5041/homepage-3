@@ -135,20 +135,6 @@
 
 <style lang="less">
 	@small-screen: 580px;
-	@medium-screen: 960px;
-	@large-screen: 1200px;
-	@xlarge-screen: 1600px;
-
-	body,
-	html {
-		font-size: 1em;
-		padding: 1em;
-
-		@media (max-width: @small-screen) {
-			font-size: 0.9em;
-			padding: 0.9em;
-		}
-	}
 
 	html {
 		background-color: black;
@@ -176,7 +162,7 @@
 		position: relative;
 		cursor: pointer;
 		@media (max-width: @small-screen) {
-			padding: 40px 10px;
+			padding: 40px 0;
 		}
 	}
 
