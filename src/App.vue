@@ -250,11 +250,11 @@
 			opacity: 1;
 			transform: scale(1.03);
 			cursor: default;
-			background-color: white;
+			background-color: whitesmoke;
 			.image {
-				filter: blur(70px);
+				filter: blur(10px);
 				// -webkit-filter: blur(70px) saturate(200%) brightness(150%);
-				opacity: 0.95;
+				opacity: 0.6;
 				transform: scale(1.2);
 			}
 			.details {
