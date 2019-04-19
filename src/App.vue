@@ -12,10 +12,7 @@
 					<img class="image" :src="imgUrl(project.image)" :alt="project.description">
 					<div class="details">
 						<p class="text" v-html="project.description"></p>
-						<a class="visit" v-if="project.link" :href="project.link" target="blank">
-							VISIT
-							<div>-></div>
-						</a>
+						<a class="visit" v-if="project.link" :href="project.link" target="blank">VISIT-></a>
 					</div>
 				</div>
 			</div>
@@ -137,11 +134,28 @@
 </script>
 
 <style lang="less">
+	@small-screen: 580px;
+	@medium-screen: 960px;
+	@large-screen: 1200px;
+	@xlarge-screen: 1600px;
+
+	body,
+	html {
+		font-size: 1em;
+		padding: 1em;
+
+		@media (max-width: @small-screen) {
+			font-size: 0.9em;
+			padding: 0.9em;
+		}
+	}
+
 	html {
 		background-color: black;
 	}
 	body {
 		margin: 0;
+		text-align: center;
 	}
 
 	@font-face {
@@ -153,15 +167,16 @@
 		display: flex;
 		justify-content: center;
 		flex-wrap: wrap;
-		margin: 100px 0;
+		margin: 100px auto;
+		max-width: 1800px;
 	}
 
 	.project {
 		padding: 40px;
 		position: relative;
 		cursor: pointer;
-		@media (max-width: 600px) {
-			padding: 30px 10px;
+		@media (max-width: @small-screen) {
+			padding: 40px 10px;
 		}
 	}
 
@@ -173,9 +188,9 @@
 		border-radius: 5px;
 		transition: 0.2s;
 		opacity: 0.3;
-		@media (max-width: 600px) {
-			width: 90vw;
-			height: 90vw;
+		@media (max-width: @small-screen) {
+			width: 95vw;
+			height: 95vw;
 			opacity: 1;
 		}
 	}
@@ -200,22 +215,27 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		padding: 50px;
+		padding: 30px;
 		box-sizing: border-box;
 		text-align: center;
 		font-size: 20px;
 		font-family: "fira-code";
 		line-height: 1.5;
 		pointer-events: none;
-		@media (max-width: 600px) {
-			font-size: 15px;
+		@media (max-width: @small-screen) {
+			font-size: 4.5vw;
+			padding: 5vw;
 		}
 	}
 
-	.details .text {
+	.details .text,
+	.details {
 		a {
 			color: #fff54e;
 			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 		span {
 			color: rgb(116, 255, 128);
@@ -223,17 +243,12 @@
 	}
 
 	.details .visit {
-		text-decoration: none;
-		color: #fff54e;
-		padding: 10px;
-		display: flex;
-		cursor: pointer;
+		padding: 30px;
 		position: absolute;
-		bottom: 10px;
-		right: 15px;
-		div {
-			transition: 0.2s;
-			padding-left: 5px;
+		bottom: 0;
+		right: 0;
+		@media (max-width: @small-screen) {
+			padding: 5vw;
 		}
 	}
 
@@ -253,7 +268,6 @@
 			background-color: whitesmoke;
 			.image {
 				filter: blur(10px);
-				// -webkit-filter: blur(70px) saturate(200%) brightness(150%);
 				opacity: 0.6;
 				transform: scale(1.5);
 			}
