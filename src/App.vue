@@ -147,6 +147,7 @@
 	@font-face {
 		font-family: fira-code;
 		src: url(assets/fonts/FiraCode-Regular.otf);
+		font-display: fallback;
 	}
 
 	.projects {
@@ -205,7 +206,7 @@
 		box-sizing: border-box;
 		text-align: center;
 		font-size: 20px;
-		font-family: "fira-code";
+		font-family: "fira-code", monospace;
 		line-height: 1.5;
 		pointer-events: none;
 		@media (max-width: @small-screen) {
