@@ -251,8 +251,8 @@
 			transform: scale(1.03);
 			cursor: default;
 			.image {
-				filter: blur(70px) saturate(200%) brightness(150%);
-				-webkit-filter: blur(70px) saturate(200%) brightness(150%);
+				filter: blur(70px);
+				// -webkit-filter: blur(70px) saturate(200%) brightness(150%);
 				opacity: 1;
 				transform: scale(1.2);
 			}
