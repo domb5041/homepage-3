@@ -4,11 +4,11 @@
 			<div
 				v-for="(project, index) in projects"
 				:key="index"
-				class="project-container"
+				class="project"
 				:id="'project-' + index "
 				@click="clickProject($event)"
 			>
-				<div class="project">
+				<div class="inner">
 					<img class="image" :src="imgUrl(project.image)" :alt="project.description">
 					<div class="details">
 						<p class="text" v-html="project.description"></p>
@@ -28,27 +28,29 @@
 		name: "app",
 		components: {},
 		mounted() {
-			document.getElementById("project-0").classList.add("project-active");
+			document.getElementById(this.lastActiveId).classList.add("active");
 		},
 		methods: {
 			imgUrl: function(path) {
 				return require(`./assets/${path}`);
 			},
 			clickProject(event) {
-				let thisProject = document.getElementById(event.currentTarget.id);
-				let lastProject = document.getElementById(this.lastProject);
+				let newId = event.currentTarget.id;
+				let lastId = this.lastActiveId;
+				let newActive = document.getElementById(newId);
+				let lastActive = document.getElementById(lastId);
 
-				if (this.lastProject != event.currentTarget.id) {
-					lastProject.classList.remove("project-active");
+				if (newId != lastId) {
+					lastActive.classList.remove("active");
 				}
-				thisProject.classList.add("project-active");
+				newActive.classList.add("active");
 
-				this.lastProject = event.currentTarget.id;
+				this.lastActiveId = newId;
 			}
 		},
 		data() {
 			return {
-				lastProject: "project-0",
+				lastActiveId: "project-0",
 				projects: [
 					{
 						description:
@@ -160,44 +162,42 @@
 		margin: 100px 0;
 	}
 
-	.project-container {
+	.project {
 		padding: 40px;
 		position: relative;
+		cursor: pointer;
 		@media (max-width: 600px) {
 			padding: 30px 10px;
 		}
 	}
 
-	.project {
+	.project .inner {
 		position: relative;
 		width: 500px;
 		height: 500px;
 		overflow: hidden;
-		cursor: pointer;
 		border-radius: 5px;
 		transition: 0.2s;
 		opacity: 0.3;
-		& > * {
-			position: absolute;
-			top: 0;
-			left: 0;
-			transition: 0.2s;
-		}
 		@media (max-width: 600px) {
 			width: 90vw;
 			height: 90vw;
-		}
-
-		img {
-			object-fit: cover;
-			width: 100%;
-			height: 100%;
-		}
-		@media (max-width: 600px) {
 			opacity: 1;
 		}
 	}
-	.project .details {
+
+	.inner .image {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+		transition: 0.2s;
+	}
+
+	.inner .details {
+		position: absolute;
+		top: 0;
+		left: 0;
+		transition: 0.2s;
 		color: white;
 		opacity: 0;
 		width: 100%;
@@ -243,16 +243,16 @@
 		}
 	}
 
-	.project-container:hover {
-		.project {
+	.project:hover {
+		.inner {
 			opacity: 1;
 			transform: scale(1.03);
 		}
 	}
 
-	.project-container.project-active,
-	.project-container.project-active:hover {
-		.project {
+	.project.active,
+	.project.active:hover {
+		.inner {
 			opacity: 1;
 			transform: scale(1.03);
 			cursor: default;
