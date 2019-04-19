@@ -173,6 +173,7 @@
 		top: 0;
 		left: 0;
 		filter: blur(100px) saturate(200%);
+		-webkit-filter: blur(100px) saturate(200%);
 		opacity: 0;
 		transition: 0.2s;
 	}
@@ -227,7 +228,8 @@
 
 			p {
 				a {
-					color: white;
+					color: #fff54e;
+					text-decoration: none;
 				}
 				span {
 					color: rgb(116, 255, 128);
@@ -236,7 +238,7 @@
 
 			.visit-link {
 				text-decoration: none;
-				color: white;
+				color: #fff54e;
 				padding: 10px;
 				display: flex;
 				cursor: pointer;
@@ -248,26 +250,9 @@
 					padding-left: 5px;
 				}
 			}
-			.visit-link:hover div {
-				animation-name: arrow;
-				animation-duration: 1s;
-				animation-iteration-count: infinite;
-			}
 		}
 		@media (max-width: 600px) {
 			opacity: 1;
-		}
-	}
-
-	@keyframes arrow {
-		0% {
-			transform: translateX(0);
-		}
-		50% {
-			transform: translateX(10px);
-		}
-		100% {
-			transform: translateX(0);
 		}
 	}
 
@@ -292,6 +277,7 @@
 			cursor: default;
 			img {
 				filter: brightness(200%) blur(70px) saturate(200%);
+				-webkit-filter: brightness(200%) blur(70px) saturate(200%);
 				opacity: 1;
 				transform: scale(1.2);
 			}
