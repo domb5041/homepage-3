@@ -55,7 +55,7 @@
 					{
 						description:
 							"I'm a <span>frontend developer</span> and <span>designer</span>. You can find my recent work on this page, or <a href='Dominic Butler CV.pdf' target='blank'>click here</a> to open my CV.",
-						image: "avatar.png"
+						image: "avatar.jpg"
 					},
 					{
 						description:
@@ -66,14 +66,14 @@
 					{
 						description:
 							"Guitar theory made bright and lively with <span>Illustrator</span> and <span>After Effects</span>",
-						image: "notecircle.png",
+						image: "notecircle.jpg",
 						link:
 							"https://www.youtube.com/watch?v=JChDbIOkE58&list=PLrRbyFPS5q6w8wLmKAudLnPg1L7CMv1Lw"
 					},
 					{
 						description:
 							"A collection of my <span>graphic design</span> and illustration work.",
-						image: "teddy.png",
+						image: "teddy.jpg",
 						link: "https://www.instagram.com/dombutlerpad/"
 					},
 					{
@@ -97,7 +97,7 @@
 					{
 						description:
 							"Connecting to Kentico Cloud API. built with <span>React</span>.",
-						image: "cafes.png",
+						image: "cafes.jpg",
 						link: "https://kentico-cafes.herokuapp.com/"
 					},
 					{
@@ -121,7 +121,7 @@
 					{
 						description:
 							"MonoNote is minimalist note-pad app built with <span>React</span> and <span>Bootstrap</span>",
-						image: "mononote.png",
+						image: "mononote.jpg",
 						link: "https://mononote.herokuapp.com/"
 					},
 					{
@@ -129,12 +129,6 @@
 							"A simple <span>Javascript</span> memory game using the checkbox element.",
 						image: "checkboxes.png",
 						link: "https://checkbox-challenge.herokuapp.com"
-					},
-					{
-						description:
-							"An album cover layout. Experimenting with <span>CSS</span> styles.",
-						image: "albumtable.png",
-						link: "https://album-wall.herokuapp.com"
 					}
 				]
 			};
