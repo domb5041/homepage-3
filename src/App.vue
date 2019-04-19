@@ -147,7 +147,7 @@
 	@font-face {
 		font-family: fira-code;
 		src: url(assets/fonts/FiraCode-Regular.otf);
-		font-display: block;
+		font-display: fallback;
 	}
 
 	.projects {
