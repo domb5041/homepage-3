@@ -1,18 +1,21 @@
 <template>
 	<div id="app">
 		<div class="projects">
-			<div v-for="(project, index) in projects" :key="index">
-				<div class="project-container" :id="'project-' + index " @click="clickProject($event)">
-					<img class="image-glow" :src="imgUrl(project.image)">
-					<div class="project">
-						<img class="image" :src="imgUrl(project.image)" :alt="project.description">
-						<div class="reverse">
-							<p v-html="project.description"></p>
-							<a class="visit-link" v-if="project.link" :href="project.link" target="blank">
-								VISIT
-								<div>-></div>
-							</a>
-						</div>
+			<div
+				v-for="(project, index) in projects"
+				:key="index"
+				class="project-container"
+				:id="'project-' + index "
+				@click="clickProject($event)"
+			>
+				<div class="project">
+					<img class="image" :src="imgUrl(project.image)" :alt="project.description">
+					<div class="details">
+						<p class="text" v-html="project.description"></p>
+						<a class="visit" v-if="project.link" :href="project.link" target="blank">
+							VISIT
+							<div>-></div>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -165,24 +168,10 @@
 		}
 	}
 
-	.image-glow {
-		object-fit: cover;
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		filter: blur(100px) saturate(200%);
-		-webkit-filter: blur(100px) saturate(200%);
-		opacity: 0;
-		transition: 0.2s;
-	}
-
 	.project {
 		position: relative;
 		width: 500px;
 		height: 500px;
-		// margin: 40px;
 		overflow: hidden;
 		cursor: pointer;
 		border-radius: 5px;
@@ -204,91 +193,79 @@
 			width: 100%;
 			height: 100%;
 		}
-
-		.reverse {
-			color: white;
-			opacity: 0;
-			width: 100%;
-			height: 100%;
-			background-color: rgba(0, 0, 0, 0.3);
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-direction: column;
-			padding: 50px;
-			box-sizing: border-box;
-			text-align: center;
-			font-size: 20px;
-			font-family: "fira-code";
-			line-height: 1.5;
-			pointer-events: none;
-			@media (max-width: 600px) {
-				font-size: 15px;
-			}
-
-			p {
-				a {
-					color: #fff54e;
-					text-decoration: none;
-				}
-				span {
-					color: rgb(116, 255, 128);
-				}
-			}
-
-			.visit-link {
-				text-decoration: none;
-				color: #fff54e;
-				padding: 10px;
-				display: flex;
-				cursor: pointer;
-				position: absolute;
-				bottom: 10px;
-				right: 15px;
-				div {
-					transition: 0.2s;
-					padding-left: 5px;
-				}
-			}
-		}
 		@media (max-width: 600px) {
 			opacity: 1;
 		}
 	}
+	.project .details {
+		color: white;
+		opacity: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.3);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 50px;
+		box-sizing: border-box;
+		text-align: center;
+		font-size: 20px;
+		font-family: "fira-code";
+		line-height: 1.5;
+		pointer-events: none;
+		@media (max-width: 600px) {
+			font-size: 15px;
+		}
+	}
+
+	.details .text {
+		a {
+			color: #fff54e;
+			text-decoration: none;
+		}
+		span {
+			color: rgb(116, 255, 128);
+		}
+	}
+
+	.details .visit {
+		text-decoration: none;
+		color: #fff54e;
+		padding: 10px;
+		display: flex;
+		cursor: pointer;
+		position: absolute;
+		bottom: 10px;
+		right: 15px;
+		div {
+			transition: 0.2s;
+			padding-left: 5px;
+		}
+	}
 
 	.project-container:hover {
-		z-index: 1000;
 		.project {
 			opacity: 1;
 			transform: scale(1.03);
-		}
-		.image-glow {
-			opacity: 0.3;
 		}
 	}
 
 	.project-container.project-active,
 	.project-container.project-active:hover {
-		z-index: 2000;
-
 		.project {
 			opacity: 1;
 			transform: scale(1.03);
 			cursor: default;
-			img {
+			.image {
 				filter: brightness(200%) blur(70px) saturate(200%);
 				-webkit-filter: brightness(200%) blur(70px) saturate(200%);
 				opacity: 1;
 				transform: scale(1.2);
 			}
-
-			.reverse {
+			.details {
 				opacity: 1;
 				pointer-events: all;
 			}
-		}
-		.image-glow {
-			opacity: 0.3;
 		}
 	}
 </style>
