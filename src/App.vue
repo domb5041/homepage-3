@@ -255,7 +255,7 @@
 				filter: blur(10px);
 				// -webkit-filter: blur(70px) saturate(200%) brightness(150%);
 				opacity: 0.6;
-				transform: scale(2);
+				transform: scale(1.5);
 			}
 			.details {
 				opacity: 1;
