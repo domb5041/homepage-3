@@ -166,8 +166,13 @@
 	}
 
 	@font-face {
-		font-family: fira-code;
+		font-family: fira-regular;
 		src: url(assets/fonts/FiraCode-Regular.otf);
+		font-display: block;
+	}
+	@font-face {
+		font-family: fira-medium;
+		src: url(assets/fonts/FiraCode-Medium.otf);
 		font-display: block;
 	}
 
@@ -227,7 +232,7 @@
 		box-sizing: border-box;
 		text-align: center;
 		font-size: 20px;
-		font-family: "fira-code", monospace;
+		font-family: "fira-regular", monospace;
 		line-height: 1.5;
 		pointer-events: none;
 		@media (max-width: @small-screen) {
@@ -241,11 +246,13 @@
 		a {
 			color: #fff54e;
 			text-decoration: none;
+			font-family: "fira-medium", monospace;
 			&:hover {
 				text-decoration: underline;
 			}
 		}
 		span {
+			font-family: "fira-medium", monospace;
 			color: rgb(116, 255, 128);
 		}
 	}
