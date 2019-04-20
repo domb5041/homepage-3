@@ -72,7 +72,7 @@
 				projects: [
 					{
 						description:
-							"I'm a <span>frontend developer</span> and <span>designer</span>. You can find my recent work on this page, or <a href='Dominic Butler CV.pdf' target='blank'>click here</a> to open my CV.",
+							"I'm a <span>frontend developer</span> and <span>designer</span>. You can find my recent work on this page, or <a href='Dominic-Butler-CV.pdf' target='blank'>click here</a> to open my CV.",
 						image: "avatar.jpg"
 					},
 					{
