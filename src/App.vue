@@ -7,6 +7,7 @@
 				class="project"
 				:id="'project-' + index "
 				@click="clickProject($event)"
+				@mousemove="mousePosition($event)"
 			>
 				<div class="inner">
 					<img class="image" :src="imgUrl(project.image)" :alt="project.description">
@@ -43,6 +44,9 @@
 				newActive.classList.add("active");
 
 				this.lastActiveId = newId;
+			},
+			mousePosition(event) {
+				console.log(event.pageX + "," + event.pageY);
 			}
 		},
 		data() {
@@ -252,7 +256,7 @@
 			opacity: 1;
 			transform: scale(1.03);
 			cursor: default;
-			background-color: whitesmoke;
+			background: radial-gradient(at 60% 40px, white, silver, transparent);
 			.image {
 				filter: blur(10px);
 				opacity: 0.6;
