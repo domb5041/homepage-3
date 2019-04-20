@@ -9,7 +9,10 @@
 				@click="clickProject($event)"
 				@mousemove="mousePosition($event)"
 			>
-				<div class="inner">
+				<div
+					class="inner"
+					:style="`background: radial-gradient(at ${panda.x}px ${panda.y}px, azure, darkslategrey)`"
+				>
 					<img class="image" :src="imgUrl(project.image)" :alt="project.description">
 					<div class="details">
 						<p class="text" v-html="project.description"></p>
@@ -44,14 +47,28 @@
 				newActive.classList.add("active");
 
 				this.lastActiveId = newId;
+
+				this.mousePosition(event);
 			},
 			mousePosition(event) {
-				console.log(event.pageX + "," + event.pageY);
+				let element = document
+					.getElementById(event.currentTarget.id)
+					.getBoundingClientRect();
+
+				if (event.currentTarget.id == this.lastActiveId) {
+					this.panda.x = parseFloat(
+						event.pageX - (element.left + window.scrollX + 40)
+					);
+					this.panda.y = parseFloat(
+						event.pageY - (element.top + window.scrollY + 40)
+					);
+				}
 			}
 		},
 		data() {
 			return {
 				lastActiveId: "project-0",
+				panda: { x: 0, y: 0 },
 				projects: [
 					{
 						description:
@@ -256,7 +273,7 @@
 			opacity: 1;
 			transform: scale(1.03);
 			cursor: default;
-			background: radial-gradient(at 60% 40px, white, silver, transparent);
+			// background: radial-gradient(at 60% 40px, white, silver, transparent);
 			.image {
 				filter: blur(10px);
 				opacity: 0.6;
