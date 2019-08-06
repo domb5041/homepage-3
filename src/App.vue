@@ -85,13 +85,6 @@ export default {
 				},
 				{
 					description:
-						"A savings and interest calculator web app, built with <span>D3</span> and <span>Vue</span>.",
-					image: "savings-graph.png",
-					link: "https://savings-interest-calculator.herokuapp.com",
-					spotlight: { x: 0, y: 0 }
-				},
-				{
-					description:
 						"A website for a small digital agency, built with <span>Vue</span>, <span>Nuxt</span> and <span>UI Kit</span>.",
 					image: "discoverit.jpg",
 					link: "https://discoverit.digital",
