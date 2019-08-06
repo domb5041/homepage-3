@@ -128,13 +128,6 @@ export default {
 				},
 				{
 					description:
-						"Connecting to Kentico Cloud API. built with <span>React</span>.",
-					image: "cafes.jpg",
-					link: "https://kentico-cafes.herokuapp.com/",
-					spotlight: { x: 0, y: 0 }
-				},
-				{
-					description:
 						"A simple <span>React</span> app for recording statistical data during a race.",
 					image: "runners.png",
 					link: "https://dcsl-runners.herokuapp.com",
